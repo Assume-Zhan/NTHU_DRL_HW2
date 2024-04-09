@@ -21,10 +21,10 @@ class NoisyLinear(nn.Module):
         self.std_init = std_init
         self.weight_mu = nn.Parameter(torch.empty(out_features, in_features))
         self.weight_sigma = nn.Parameter(torch.empty(out_features, in_features))
-        self.register_buffer('weight_epsilon', torch.empty(out_features, in_features).to("cuda"))
+        self.register_buffer('weight_epsilon', torch.empty(out_features, in_features).to("cpu"))
         self.bias_mu = nn.Parameter(torch.empty(out_features))
         self.bias_sigma = nn.Parameter(torch.empty(out_features))
-        self.register_buffer('bias_epsilon', torch.empty(out_features).to("cuda"))
+        self.register_buffer('bias_epsilon', torch.empty(out_features).to("cpu"))
         self.reset_parameters()
         self.sample_noise()
 
