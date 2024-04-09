@@ -89,7 +89,7 @@ class Agent(nn.Module):
         )
 
         # Directly load the module
-        self.load_state_dict(torch.load("110060018_hw2_data.py")["model_state_dict"])
+        self.load_state_dict(torch.load("110060018_hw2_data.py")["model_state_dict"], map_location=torch.device('cpu'))
 
         self.frame_stacking_queue = deque(maxlen=4)
         self.frame_skipping = 0
